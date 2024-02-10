@@ -221,5 +221,74 @@ namespace CalculatorLibrary.Tests
             // Assert
             Assert.AreEqual(0, result);
         }
+        [TestMethod]
+        public void TestDivide_NormalCase()
+        {
+            // Arrange
+            decimal number1 = 6;
+            decimal number2 = 2;
+
+            // Act
+            decimal result = _calculator.Divide(number1, number2);
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void TestDivide_DivideByZero()
+        {
+            // Arrange
+            decimal number1 = 6;
+            decimal number2 = 0;
+
+            // Act & Assert
+            Assert.ThrowsException<System.DivideByZeroException>(() =>
+            {
+                _calculator.Divide(number1, number2);
+            });
+        }
+
+        [TestMethod]
+        public void TestDivide_LargeNumber()
+        {
+            // Arrange
+            decimal number1 = 10000;
+            decimal number2 = 10;
+
+            // Act
+            decimal result = _calculator.Divide(number1, number2);
+
+            // Assert
+            Assert.AreEqual(1000, result);
+        }
+
+        [TestMethod]
+        public void TestDivide_DecimalNumbers()
+        {
+            // Arrange
+            decimal number1 = 5.5m;
+            decimal number2 = 2.5m;
+
+            // Act
+            decimal result = _calculator.Divide(number1, number2);
+
+            // Assert
+            Assert.AreEqual(2.2m, result);
+        }
+
+        [TestMethod]
+        public void TestDivide_NegativeNumbers()
+        {
+            // Arrange
+            decimal number1 = -10;
+            decimal number2 = 2;
+
+            // Act
+            decimal result = _calculator.Divide(number1, number2);
+
+            // Assert
+            Assert.AreEqual(-5, result);
+        }
     }
 }

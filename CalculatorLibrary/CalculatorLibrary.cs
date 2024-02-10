@@ -19,9 +19,7 @@ namespace CalculatorLibrary
 
         public decimal Divide(decimal number1 = 0, decimal number2 = 0)
         {
-            decimal bigNumber = number1 > number2 ? number1 : number2;
-            decimal smallNumber = number1 < number2 ? number1 : number2;
-            return bigNumber / smallNumber;
+            return number1 / number2;
         }
 
         public decimal Modulo(decimal number1 = 0, decimal number2 = 0)
