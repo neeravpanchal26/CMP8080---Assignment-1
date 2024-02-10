@@ -82,7 +82,7 @@ namespace CalculatorLibrary.Tests
             // Assert
             Assert.AreEqual(-7, result);
         }
-        
+
         [TestMethod]
         public void TestSubtractPositiveNumbers()
         {
@@ -151,6 +151,75 @@ namespace CalculatorLibrary.Tests
 
             // Assert
             Assert.AreEqual(1, result);
+        }
+        [TestMethod]
+        public void TestMultiply_TwoPositiveNumbers()
+        {
+            // Arrange
+            decimal number1 = 2;
+            decimal number2 = 3;
+
+            // Act
+            decimal result = _calculator.Multiply(number1, number2);
+
+            // Assert
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void TestMultiply_PositiveAndNegativeNumber()
+        {
+            // Arrange
+            decimal number1 = 5;
+            decimal number2 = -4;
+
+            // Act
+            decimal result = _calculator.Multiply(number1, number2);
+
+            // Assert
+            Assert.AreEqual(-20, result);
+        }
+
+        [TestMethod]
+        public void TestMultiply_TwoNegativeNumbers()
+        {
+            // Arrange
+            decimal number1 = -2;
+            decimal number2 = -3;
+
+            // Act
+            decimal result = _calculator.Multiply(number1, number2);
+
+            // Assert
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void TestMultiply_OneZero()
+        {
+            // Arrange
+            decimal number1 = 0;
+            decimal number2 = 5;
+
+            // Act
+            decimal result = _calculator.Multiply(number1, number2);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TestMultiply_BothZero()
+        {
+            // Arrange
+            decimal number1 = 0;
+            decimal number2 = 0;
+
+            // Act
+            decimal result = _calculator.Multiply(number1, number2);
+
+            // Assert
+            Assert.AreEqual(0, result);
         }
     }
 }
