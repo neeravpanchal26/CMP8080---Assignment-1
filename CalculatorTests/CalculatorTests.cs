@@ -82,5 +82,75 @@ namespace CalculatorLibrary.Tests
             // Assert
             Assert.AreEqual(-7, result);
         }
+        
+        [TestMethod]
+        public void TestSubtractPositiveNumbers()
+        {
+            // Arrange
+            decimal number1 = 5;
+            decimal number2 = 3;
+
+            // Act
+            decimal result = _calculator.Subtract(number1, number2);
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [TestMethod]
+        public void TestSubtractNegativeNumbers()
+        {
+            // Arrange
+            decimal number1 = -5;
+            decimal number2 = -3;
+
+            // Act
+            decimal result = _calculator.Subtract(number1, number2);
+
+            // Assert
+            Assert.AreEqual(-2, result);
+        }
+
+        [TestMethod]
+        public void TestSubtractPositiveAndNegativeNumbers()
+        {
+            // Arrange
+            decimal number1 = 5;
+            decimal number2 = -3;
+
+            // Act
+            decimal result = _calculator.Subtract(number1, number2);
+
+            // Assert
+            Assert.AreEqual(8, result);
+        }
+
+        [TestMethod]
+        public void TestSubtractZero()
+        {
+            // Arrange
+            decimal number1 = 5;
+            decimal number2 = 0;
+
+            // Act
+            decimal result = _calculator.Subtract(number1, number2);
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void TestSubtractLargeNumbers()
+        {
+            // Arrange
+            decimal number1 = 1000000000000000000;
+            decimal number2 = 999999999999999999;
+
+            // Act
+            decimal result = _calculator.Subtract(number1, number2);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
